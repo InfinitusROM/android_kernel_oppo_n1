@@ -376,7 +376,7 @@ KBUILD_CPPFLAGS := -D__KERNEL__
 # AK LINARO OPT
 #
 CFLAGS_A15 = -mtune=cortex-a15 -mfpu=neon -funsafe-math-optimizations
-CFLAGS_MODULO = -fmodulo-sched -fmodulo-sched-allow-regmoves
+CFLAGS_MODULO = -fmodulo-sched -fmodulo-sched-allow-regmoves -fno-tree-vectorize -ffast-math
 KERNEL_MODS	= $(CFLAGS_A15) $(CFLAGS_MODULO)
 
 KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
