@@ -1,8 +1,8 @@
 #!/bin/bash
 clear
 wmctrl -r :ACTIVE: -N "Applying Build Settings"
-now=$(date +"%T")
-echo "Current time : $now"
+NOW=$(date +"%d-%m-%Y")
+echo "Current Date : $NOW"
 echo "Applying Build Settings"
 sleep 1
 
@@ -12,7 +12,7 @@ export ARCH=arm
 echo "Setting Defconfig"
 export DEFCONFIG=cyanogenmod_x909_defconfig
 echo "Setting Date And Time For Zip File"
-export NOW=$(date +"%m-%d-%y_%H:%M")
+export NOW=$(date +"%d-%m-%Y")
 echo "Setting Toolchain"
 export GCC=AK-linaro
 echo "Setting Toolchain Version"
@@ -27,6 +27,8 @@ echo "Setting CPU Cores/Threads"
 export CPUS=`nproc`
 echo "Setting zImage Location For Infinitus-Dev kernel"
 export ZIMAGE=arch/arm/boot/zImage
+echo "Enabling Graphite Optimizations"
+export ENABLE_GRAPHITE=true
 echo "Enviroment Setup Complete Now Moving To Compiling"
 
 #Build
@@ -73,18 +75,18 @@ sleep 1
 echo "Copying zImage"
 find '../arch/' -name "zImage" -exec cp -av {} kernel/ \;
 sleep 1
-echo "Compiling Infinitus-Dev-Kernel-V1.0-"$NOW".zip"
-zip -r Infinitus-Dev-Kernel-Find5-V1.0-"$NOW".zip kernel/ META-INF/ system/
+echo "Compiling Infinitus-Dev-Kernel-LP-"$NOW".zip"
+zip -r Infinitus-Dev-Kernel-Find5-LP-"$NOW".zip kernel/ META-INF/ system/
 sleep 1
 echo "Signing Zip"
-java -classpath testsign.jar testsign Infinitus-Dev-Kernel-Find5-V1.0-"$NOW".zip Infinitus-Dev-Kernel-Find5-V1.0-"$NOW"-Signed.zip
+java -classpath testsign.jar testsign Infinitus-Dev-Kernel-Find5-LP-"$NOW".zip Infinitus-Dev-Kernel-Find5-LP-"$NOW"-Signed.zip
 sleep 1
-echo "Renamed Infinitus-Dev-Kernel-Find5-V1.0-"$NOW"-Signed.zip To Infinitus-Dev-Kernel-Find5-V1.0-"$NOW".zip"
-mv Infinitus-Dev-Kernel-Find5-V1.0-"$NOW"-Signed.zip Infinitus-Dev-Kernel-Find5-V1.0-"$NOW".zip && rm kernel/zImage
+echo "Renamed Infinitus-Dev-Kernel-Find5-LP-"$NOW"-Signed.zip To Infinitus-Dev-Kernel-Find5-LP-"$NOW".zip"
+mv Infinitus-Dev-Kernel-Find5-LP-"$NOW"-Signed.zip Infinitus-Dev-Kernel-Find5-LP-"$NOW".zip && rm kernel/zImage
 sleep 1
-echo "Completed Builing Infinitus-Dev-Kernel-Find5-V1.0-"$NOW".zip"
+echo "Completed Builing Infinitus-Dev-Kernel-Find5-LP-"$NOW".zip"
 sleep 1
-echo "Look In The Packer-Find5 Folder For Infinitus-Dev-Kernel-Find5-V1.0-"$NOW".zip And Flash It ;)"
+echo "Look In The Packer-Find5 Folder For Infinitus-Dev-Kernel-Find5-LP-"$NOW".zip And Flash It ;)"
 wmctrl -r :ACTIVE: -N "Terminal"
 nowf=$(date +"%T")
 echo "Completion Time : $nowf"
