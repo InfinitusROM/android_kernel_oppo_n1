@@ -143,6 +143,6 @@ obj-$(CONFIG_MOBICORE_SUPPORT)  += gud/
 
 obj-$(CONFIG_CORESIGHT)		+= coresight/
 
-ifeq (1, $(shell if [ -d drivers/exfat ] ; then echo 1 ; fi))
-obj-y   += exfat/
-endif
+#ifeq (1, $(shell if [ -d drivers/exfat ] ; then echo 1 ; fi))
+#obj-y   += exfat/
+#endif

@@ -16,7 +16,7 @@ export NOW=$(date +"%m-%d-%y_%H:%M")
 echo "Setting Toolchain"
 export GCC=AK-linaro
 echo "Setting Toolchain Version"
-export VER=4.9.3-2015.01.20150117.CR83
+export VER=4.9.3-2015.02.20150221.CR83
 echo "Setting Toolchain Location"
 export TOOLCHAIN=../$GCC/$VER/bin/arm-eabi-
 echo "Setting Toolchain Strip Location"

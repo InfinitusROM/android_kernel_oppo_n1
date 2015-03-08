@@ -160,7 +160,7 @@ export srctree objtree VPATH
 
 CCACHE := ccache
 GCC := AK-linaro
-VER := 4.9.3-2015.01.20150117.CR83
+VER := 4.9.3-2015.02.20150221.CR83
 VERBOSE=1
 
 # SUBARCH tells the usermode build what the underlying arch is.  That is set
